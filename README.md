@@ -88,7 +88,7 @@ If we run `learn spec/02_cli_spec.rb` we can see from the test output that the f
 
 Let's walk through some of the error messages from running the CLI spec together.
 
-In your terminal, once you have your `spec/01_greeting_spec.rb` tests passing, run `rspec spec/02_cli_spec.rb`.
+In your terminal, once you have your `spec/01_greeting_spec.rb` tests passing, run `learn spec/02_cli_spec.rb`.
 
 The first failure and error message should look something like this:
 
@@ -155,3 +155,5 @@ When you're done, run `learn` to confirm all tests are passing.
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/greeting-cli' title='Greeting Cli'>Greeting Cli</a> on Learn.co and start learning to code for free.</p>
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/greeting-cli'>Greeting CLI Lab</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/greeting-cli'>Greeting CLI Lab </a> on Learn.co and start learning to code for free.</p>
