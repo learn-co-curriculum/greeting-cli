@@ -23,7 +23,7 @@ Check out the video below to see the final product in action:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sBQBP1Aaxzk" frameborder="0" allowfullscreen></iframe>
 
-Notice that the the program is run with `ruby bin/greet`––we are using Ruby to run the code in the executable file that lives in our `bin` directory. Let's take a closer look at our project structure now.
+Notice that the program is run with `ruby bin/greet`––we are using Ruby to run the code in the executable file that lives in our `bin` directory. Let's take a closer look at our project structure now.
 
 ## Project Structure
 
@@ -57,7 +57,7 @@ This directory contains the tests for our program. We have tests for the code in
 
 ## Instructions
 
-### Part I: The   `greeting` Method
+#### Part I: The   `greeting` Method
 
 Before we worry about building the CLI, we need to build the core functionality of our program––that is, the actions that will be carried out once we obtain the user's input. That code belongs in the `lib` directory.
 
@@ -67,7 +67,7 @@ In order to get our tests passing, we'll need to define a method, `#greeting` th
 
 Once you get these tests passing, you're ready to move on to the next section.
 
-### Part II: The CLI
+#### Part II: The CLI
 
 Our CLI code belongs in the `bin` directory. Open up `bin/greet`. Notice that, according to convention, our executable file does not have a file extension (such as `.rb`). Take a look at the first lines of the file:
 
@@ -84,7 +84,7 @@ If we run `learn spec/02_cli_spec.rb` we can see from the test output that the f
 2. Use the `#gets.strip` method to store the user's input and set it equal to a variable called `name`.
 3. Call the `#greeting` method with an argument of the user's name (captured using `#gets` in step 2) to output the interpolated welcome string.
 
-### Reading CLI Error Messages
+#### Reading CLI Error Messages
 
 Let's walk through some of the error messages from running the CLI spec together.
 
@@ -119,7 +119,7 @@ Then, we see the description of our failure:
 Failure/Error: expect($stdout).to receive(:puts).with("Hi! I'm HAL, what's your name?"), "Make sure bin/greet has code that can output 'Hi! I'm HAL, what's your name?' exactly."
 ```
 
-The helpful part of this error message can be found at then end, after the `, `.
+The helpful part of this error message can be found at the end, after the `, `.
 
 ```bash
 "Make sure bin/greet has code that can output 'Hi! I'm HAL, what's your name?' exactly."
@@ -150,4 +150,14 @@ Now that you have a basic sense of how to read these error messages, as well as 
 
 When you're done, run `learn` to confirm all tests are passing.
 
+#### What's the Difference between `gets`, `gets.chomp`, and `gets.strip`?
+
+When getting user input, you may want to remove whitespace. The `gets.chomp` method removes whitespace AFTER the user input. The `gets.strip` method removes whitespace BEFORE and AFTER the user input. The `gets` method by itself does not remove any whitespace or newlines from the user input. Your tests will pass using any of these methods, however, be aware that they perform different actions and are not always interchangeable for every use-case.
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7R0mD3uWk5c" frameborder="0" allowfullscreen></iframe>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/greeting-cli' title='Greeting Cli'>Greeting Cli</a> on Learn.co and start learning to code for free.</p>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/greeting-cli'>Greeting CLI Lab</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/greeting-cli'>Greeting CLI Lab</a> on Learn.co and start learning to code for free.</p>
