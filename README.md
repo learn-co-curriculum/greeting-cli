@@ -10,20 +10,27 @@
 
 ![2001 Space Odyssey](http://readme-pics.s3.amazonaws.com/2001_A_Space_Odyssey_Style_B.jpg)
 
-The year is 2001, humanity has discovered a mysterious object buried beneath the Lunar surface. Before Earth's most capable (and heroic) scientists can board the *Discovery One* and investigate, we must program the super-intelligent computer, HAL 9000. Luckily for us, however, most of HAL's functionality is already up and running. Our job is to program HAL's greeting for the user.
+The year is 2001, humanity has discovered a mysterious object buried beneath the Lunar
+surface. Before Earth's most capable (and heroic) scientists can board the *Discovery One*
+and investigate, we must program the super-intelligent computer, HAL 9000. Luckily for us,
+however, most of HAL's functionality is already up and running. Our job is to program HAL's
+greeting for the user.
 
 Our program will:
 
 1. Greet the user.
 2. Ask the user to input their name.
 3. Capture and store the user's input using the `#gets` method.
-4. Use that captured input to `puts` out a string that greets the user by name, using string interpolation.
+4. Use that captured input to `puts` out a string that greets the user by name, using string
+interpolation.
 
 Check out the video below to see the final product in action:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sBQBP1Aaxzk" frameborder="0" allowfullscreen></iframe>
 
-Notice that the program is run with `ruby bin/greet`––we are using Ruby to run the code in the executable file that lives in our `bin` directory. Let's take a closer look at our project structure now.
+Notice that the program is run with `ruby bin/greet`––we are using Ruby to run the code in the
+executable file that lives in our `bin` directory. Let's take a closer look at our project
+structure now.
 
 ## Project Structure
 
@@ -45,44 +52,60 @@ Let's take a moment to review:
 
 ### The `bin` Directory
 
-The `bin` directory holds our **executable** file. This file is responsible for running the program. It contains code that actually enacts the command line interaction - i.e. greeting the user, asking the user for input, storing that input and then acting on it.
+The `bin` directory holds our **executable** file. This file is responsible for running the
+program. It contains code that actually enacts the command line interaction - i.e. greeting
+the user, asking the user for input, storing that input and then acting on it.
 
 ### The `lib` Directory
 
-The `lib` directory is where we place the code that our program relies on to run. It is the meat of our CLI application. Our executable file *requires* the files in the `lib` directory and uses the code (for example, calling on any methods we might define) to enact the CLI.
+The `lib` directory is where we place the code that our program relies on to run. It is the
+meat of our CLI application. Our executable file *requires* the files in the `lib` directory
+and uses the code (for example, calling on any methods we might define) to enact the CLI.
 
 ### The `spec` Directory
 
-This directory contains the tests for our program. We have tests for the code in the `lib` directory in `spec/01_greeting_spec.rb` and tests for the CLI, i.e. the user interaction portion of our application, in `spec/02_cli_spec.rb`. We'll use the test output from running `learn` along with the guidelines below to get our program working.
+This directory contains the tests for our program. We have tests for the code in the `lib`
+directory in `spec/01_greeting_spec.rb` and tests for the CLI, i.e. the user interaction
+portion of our application, in `spec/02_cli_spec.rb`. We'll use the test output from running
+`learn` along with the guidelines below to get our program working.
 
 ## Instructions
 
 #### Part I: The   `greeting` Method
 
-Before we worry about building the CLI, we need to build the core functionality of our program––that is, the actions that will be carried out once we obtain the user's input. That code belongs in the `lib` directory.
+Before we worry about building the CLI, we need to build the core functionality of our program––that
+is, the actions that will be carried out once we obtain the user's input. That code belongs in the
+`lib` directory.
 
-Open up `lib/greeting.rb`. This is where we'll be writing our code. This part of the lab is test-driven. So, run the test for *just this section* by typing `learn spec/01_greeting_spec.rb` in your terminal.
+Open up `lib/greeting.rb`. This is where we'll be writing our code. This part of the lab is test-driven.
+So, run the test for *just this section* by typing `learn spec/01_greeting_spec.rb` in your terminal.
 
-In order to get our tests passing, we'll need to define a method, `#greeting` that takes in an argument of a person's name and uses string interpolation to print `"Hello #{name}. It's nice to meet you."`.
+In order to get our tests passing, we'll need to define a method, `#greeting` that takes in an
+argument of a person's name and uses string interpolation to print `"Hello #{name}. It's nice to meet you."`.
 
 Once you get these tests passing, you're ready to move on to the next section.
 
 #### Part II: The CLI
 
-Our CLI code belongs in the `bin` directory. Open up `bin/greet`. Notice that, according to convention, our executable file does not have a file extension (such as `.rb`). Take a look at the first lines of the file:
+Our CLI code belongs in the `bin` directory. Open up `bin/greet`. Notice that, according to convention,
+our executable file does not have a file extension (such as `.rb`). Take a look at the first lines of
+the file:
 
 ```ruby
 #!/usr/bin/env ruby
 require_relative '../lib/greeting.rb'
 ```
 
-First, we have our shebang line that tells the terminal which interpreter to use to execute the remainder of the file. Second, we are requiring the `greeting.rb` file, from within the `lib` directory. This gives our executable file access to whatever code we write in that `lib` file.
+First, we have our shebang line that tells the terminal which interpreter to use to execute the
+remainder of the file. Second, we are requiring the `greeting.rb` file, from within the `lib` directory.
+This gives our executable file access to whatever code we write in that `lib` file.
 
 If we run `learn spec/02_cli_spec.rb` we can see from the test output that the following is required:
 
 1. Use `#puts` to output the string "Hi! I'm HAL, what's your name?"
 2. Use the `#gets.strip` method to store the user's input and set it equal to a variable called `name`.
-3. Call the `#greeting` method with an argument of the user's name (captured using `#gets` in step 2) to output the interpolated welcome string.
+3. Call the `#greeting` method with an argument of the user's name (captured using `#gets` in step 2)
+to output the interpolated welcome string.
 
 #### Reading CLI Error Messages
 
@@ -136,7 +159,8 @@ Let's take a look at our second error message:
        local variable `name' not defined in ./bin/greet.
 ```
 
-Once again, it starts with a description that means "Running ./bin/greet should execute a CLI application that uses the gets.strip method to capture the user's input and set it equal to a variable called 'name'".
+Once again, it starts with a description that means "Running ./bin/greet should execute a CLI application
+that uses the gets.strip method to capture the user's input and set it equal to a variable called 'name'".
 
 The important part of our error message is at the bottom of the `Failure/Error` portion of the text:
 
@@ -144,15 +168,46 @@ The important part of our error message is at the bottom of the `Failure/Error` 
 local variable `name' not defined in ./bin/greet.
 ```
 
-This is telling us that the `bin/greet` file fails to set a variable called `name` equal to the user's input that is captured via the `#gets.strip` methods.
+This is telling us that the `bin/greet` file fails to set a variable called `name` equal to the user's input
+that is captured via the `#gets.strip` methods.
 
-Now that you have a basic sense of how to read these error messages, as well as some guidelines for getting those tests passing, go ahead and get HAL working properly!
+Now that you have a basic sense of how to read these error messages, as well as some guidelines for getting
+those tests passing, go ahead and get HAL working properly!
 
 When you're done, run `learn` to confirm all tests are passing.
 
 #### What's the Difference between `gets`, `gets.chomp`, and `gets.strip`?
 
-When getting user input, you may want to remove whitespace. The `gets.chomp` method removes whitespace AFTER the user input. The `gets.strip` method removes whitespace BEFORE and AFTER the user input. The `gets` method by itself does not remove any whitespace or newlines from the user input. Your tests will pass using any of these methods, however, be aware that they perform different actions and are not always interchangeable for every use-case.
+When getting user input, you may want to remove whitespace. The `gets` method by itself does not remove any
+whitespace or newlines from the user input. The `gets.chomp` method removes newline whitespace AFTER the user
+input `(e.g tabs or newlines which, in code, are "\t", "\n", or "\r")`. The `gets.strip` method removes
+whitespace BEFORE and AFTER the user input. Be aware that they perform different actions and are not always
+interchangeable for every use-case.
+
+`gets`:
+```
+// ♥ ruby bin/greet
+Hi! I'm HAL, what's your name?
+      Kellye
+Hello       Kellye
+. It's nice to meet you.
+```
+
+`gets.chomp`:
+```
+// ♥ ruby bin/greet
+Hi! I'm HAL, what's your name?
+      Kellye
+Hello       Kellye. It's nice to meet you.
+```
+
+`gets.strip`:
+```
+// ♥ ruby bin/greet
+Hi! I'm HAL, what's your name?
+      Kellye
+Hello Kellye. It's nice to meet you.
+```
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7R0mD3uWk5c" frameborder="0" allowfullscreen></iframe>
 
